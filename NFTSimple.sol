@@ -129,7 +129,7 @@ contract NFTSimple {
     /// @param owner An address for whom to query the balance
     /// @return The number of NFTs owned by `owner`, possibly zero
 
-		function balanceOf(address owner) public view returns (uint256) {
+    function balanceOf(address owner) public view returns (uint256) {
         require(
             owner != address(0),
             "KIP17: balance query for the zero address"
