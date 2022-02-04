@@ -123,4 +123,16 @@ contract NFTSimple {
         }
         return size > 0;
     }
+
+    /// @notice Count all NFTs assigned to an owner
+    /// @dev NFTs assigned to the zero address are considered invalid, and this function throws for queries about the zero address.
+    /// @param owner An address for whom to query the balance
+    /// @return The number of NFTs owned by `owner`, possibly zero
+		function balanceOf(address owner) public view returns (uint256) {
+        require(
+            owner != address(0),
+            "KIP17: balance query for the zero address"
+        );
+        return _ownedTokens[owner].length;
+    }
 }
